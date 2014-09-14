@@ -1,6 +1,12 @@
-## encfs
 
-[![Travis CI](https://secure.travis-ci.org/debops/ansible-encfs.png)](http://travis-ci.org/debops/ansible-encfs) [![test-suite](http://img.shields.io/badge/test--suite-ansible--encfs-blue.svg)](https://github.com/debops/test-suite/tree/master/ansible-encfs/) [![Ansible Galaxy](http://img.shields.io/badge/galaxy-debops.encfs-660198.svg)](https://galaxy.ansible.com/list#/roles/1562) [![Platforms](http://img.shields.io/badge/platforms-debian%20|%20genericlinux%20|%20ubuntu-lightgrey.svg)](#)
+## [![DebOps project](http://debops.org/images/debops-small.png)](http://debops.org) encfs
+
+
+
+[![Travis CI](http://img.shields.io/travis/debops/ansible-encfs.svg?style=flat)](http://travis-ci.org/debops/ansible-encfs) [![test-suite](http://img.shields.io/badge/test--suite-ansible--encfs-blue.svg?style=flat)](https://github.com/debops/test-suite/tree/master/ansible-encfs/)  [![Ansible Galaxy](http://img.shields.io/badge/galaxy-debops.encfs-660198.svg?style=flat)](https://galaxy.ansible.com/list#/roles/1562) [![Platforms](http://img.shields.io/badge/platforms-debian%20|%20genericlinux%20|%20ubuntu-lightgrey.svg?style=flat)](#)
+
+
+
 
 ### Warning, this is a BETA role
 
@@ -9,6 +15,11 @@ might be significantly changed in the future. Be careful while using this role
 in a production environment.
 
 ***
+
+
+
+
+
 Ansible role `encfs` allows you to create and manage directories using
 [EncFS](https://en.wikipedia.org/wiki/EncFS), FUSE-based encrypted virtual
 filesystem.
@@ -24,11 +35,24 @@ Role supports directories in remote hosts encrypted using a password with
 optional "passfile" as a transport for passwords in transit.
 
 
+
+
+
 ### Installation
 
 This role requires at least Ansible `v1.4`. To install it, run:
 
     ansible-galaxy install debops.encfs
+
+#### Are you using this as a standalone role without DebOps?
+
+You may need to include missing roles from the [DebOps common
+playbook](https://github.com/debops/debops-playbooks/blob/master/playbooks/common.yml)
+into your playbook.
+
+[Try DebOps now](https://github.com/debops/debops) for a complete solution to run your Debian-based infrastructure.
+
+
 
 
 
@@ -81,6 +105,7 @@ List of default variables available in the inventory:
 List of internal variables used by the role:
 
     encfs_user
+
 
 
 ### Detailed usage guide
@@ -151,13 +176,20 @@ normal, and they will be used with correct command. When last of your plays
 finishes, shell script will run Ansible with `encfs` role again, to close
 encrypted filesystem.
 
+
+
+
+
+
 ### Authors and license
 
 `encfs` role was written by:
 
 - Maciej Delmanowski | [e-mail](mailto:drybjed@gmail.com) | [Twitter](https://twitter.com/drybjed) | [GitHub](https://github.com/drybjed)
 
-License: [GPLv3](https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3))
+License: [GPLv3](https://tldrlegal.com/license/gnu-general-public-license-v3-%28gpl-3%29)
+
+
 
 ***
 
