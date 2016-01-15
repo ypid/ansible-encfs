@@ -1,14 +1,21 @@
 ---
 
+- name: Install required packages
+  apt:
+    name: '{{ item }}'
+    state: 'present'
+    install_recommends: False
+  with_items:
+    - 'encfs'
+
 - include: configure_fuse.yml
-  when: encfs is defined and encfs
+  when: (encfs | d())
 
 - include: configure_encfs.yml
-  when: encfs is defined and encfs
+  when: (encfs | d())
 
 - include: encfs_with_gpg_key.yml
-  when: (encfs is defined and encfs) and
-        (encfs_gpg is defined and encfs_gpg) and
+  when: (encfs | d()) and (encfs_gpg | d()) and
         (encfs_password is undefined or encfs_password is defined and not encfs_password) and
         (ansible_connection is defined and ansible_connection == 'local')
 
@@ -16,7 +23,7 @@
   when: (encfs is defined and encfs) and
         (encfs_gpg is undefined or encfs_gpg is defined and not encfs_gpg) and
         (encfs_password is undefined or encfs_password is defined and not encfs_password) and
-        (ansible_connection is defined and ansible_connection == 'local')
+        (ansible_connection|d("") == "local")
 
 - include: encfs_with_passfile.yml
   when: (encfs is defined and encfs) and

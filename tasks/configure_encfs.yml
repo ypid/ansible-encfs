@@ -1,14 +1,17 @@
 ---
 
-- name: Install encfs packages
-  apt: pkg=encfs state=latest install_recommends=no
-
 - name: Create encfs directories
-  file: path={{ item }} state=directory mode=0751
-  with_items: [ '{{ encfs }}', '{{ encfs }}{{ encfs_suffix }}' ]
+  file:
+    path: '{{ item }}'
+    state: 'directory'
+    mode: 0751
+  with_items:
+    - '{{ encfs }}'
+    - '{{ encfs + encfs_suffix }}'
 
 - name: Check if encfs configuration file exists
-  stat: path={{ encfs_config_file }}
+  stat:
+    path: '{{ encfs_config_file }}'
   register: encfs_config
 
 - name: Check if encfs is mounted
