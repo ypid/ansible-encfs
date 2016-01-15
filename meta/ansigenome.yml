@@ -18,7 +18,7 @@ ansigenome_info:
       github: 'drybjed'
 
   synopsis: |
-    Ansible role `debops.encfs` allows you to create and manage directories
+    This role allows you to create and manage directories
     using [EncFS](https://en.wikipedia.org/wiki/EncFS), FUSE-based encrypted
     virtual filesystem.
 
