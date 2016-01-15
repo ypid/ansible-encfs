@@ -1,4 +1,18 @@
 ---
+# Default variables
+# =================
+
+# .. contents:: Sections
+#    :local:
+#
+# ---------------------------
+#   Packages and installation
+# ---------------------------
+
+# .. envvar:: fuse_base_packages
+#
+# List of base packages to install.
+encfs_base_packages: [ 'encfs' ]
 
 # Absolute path to a directory where encrypted filesystem will be mounted
 # Required

@@ -3,7 +3,8 @@
 - name: Generate encfs gpg keyfile
   shell: tr -dc A-Za-z0-9 < {{ encfs_random }} | head -c {{ encfs_gpg_length }} |
          gpg --encrypt --armor -r {{ encfs_gpg | join( ' -r ') }} > {{ encfs_gpg_keyfile }}
-         creates={{ encfs_gpg_keyfile }}
+  args:
+    creates: '{{ encfs_gpg_keyfile }}'
   changed_when: False
 
 - name: Create encfs encrypted directory with gpg key

@@ -5,11 +5,7 @@
     name: '{{ item }}'
     state: 'present'
     install_recommends: False
-  with_items:
-    - 'encfs'
-
-- include: configure_fuse.yml
-  when: (encfs | d())
+  with_flattened: encfs_base_packages
 
 - include: configure_encfs.yml
   when: (encfs | d())
